@@ -1,13 +1,15 @@
 <template>
   <div id="app">
-<h1>Calculator</h1>
+    <h1>Calculator</h1>
 
-<div class="num-input">
-  <ul> 
-  <li><input type="number" id="myInput1"></li> 
-  <button @click="getValue()">Enter</button> 
-  <li><input type="number" id="myInput2"></li> 
-  <button @click="getValue()">Enter</button>
+      <div class="num-input">
+    <ul> 
+  <li><input type="number" v-model.number="num1"  id="myInput2"></li> 
+  <button @click="getValue1()">Enter</button> 
+  <li><input type="number" v-model="num2"  id="myInput2"></li> 
+  <button @click="getValue2()">Enter</button>
+
+  <span>{{ displayNumber }}</span>
 
   </ul>
 </div>
@@ -18,25 +20,56 @@
 <button @click="onOperatorClick('/')">/</button>
 </div>
 <div class="result">
-  
+  <button @click="calculateResult">=</button>
+  <input type="number" disabled>
 </div>
   </div>
 </template>
 
 <script>
+// import textfield from './components/textfield.vue';
 
 export default {
   name: 'App',
+  components: {
+    // textfield
+  },
+  data(){
+    return {
+      data:0,
+      num1: null,
+      num2: null
+    }
+  },
+  computed: {
+    displayNumber () {
+      return this.num1 + ' + ' + this.num2
+    }
+  },
+  methods: {
+    getValue1(){
+      var inputVal = document.querySelector("#myInput1","#myInput2").value;
+      alert("The input value is: " + inputVal);
+      console.log(inputVal);
+    },
+    getValue2(){
+      var inputVal = document.querySelector("#myInput2").value;
+      alert("The input value is:" + inputVal);
+      console.log(inputVal);
+    },
+    calculateResult (){
+      
+      
+
+    }
+  }
 }
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+
+  background-color: white;
+
 }
 </style>
