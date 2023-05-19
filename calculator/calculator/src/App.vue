@@ -4,7 +4,7 @@
 
       <div class="num-input">
     <ul> 
-  <li><input type="number" v-model.number="num1"  id="myInput2"></li> 
+  <li><input type="number" v-model.number="num1"  id="myInput1"></li> 
   <button @click="getValue1()">Enter</button> 
   <li><input type="number" v-model="num2"  id="myInput2"></li> 
   <button @click="getValue2()">Enter</button>
@@ -13,16 +13,18 @@
 
   </ul>
 </div>
-<div class="button">
-<button @click="onOperatorClick('+')">+</button>
-<button @click="onOperatorClick('-')">-</button>
-<button @click="onOperatorClick('*')">*</button>
-<button @click="onOperatorClick('/')">/</button>
-</div>
 <div class="result">
-  <button @click="calculateResult">=</button>
+  <button @click="calculateResult">Enter</button>
   <input type="number" disabled>
 </div>
+<br>
+<div class="operator">
+<button @click="onOperatorClick('+')" id="Op1">+</button>
+<button @click="onOperatorClick('-')" id="Op2">-</button>
+<button @click="onOperatorClick('*')" id="Op3">*</button>
+<button @click="onOperatorClick('/')" id="Op4">/</button>
+</div>
+
   </div>
 </template>
 
@@ -48,7 +50,7 @@ export default {
   },
   methods: {
     getValue1(){
-      var inputVal = document.querySelector("#myInput1","#myInput2").value;
+      var inputVal = document.querySelector("#myInput1").value;
       alert("The input value is: " + inputVal);
       console.log(inputVal);
     },
@@ -57,7 +59,27 @@ export default {
       alert("The input value is:" + inputVal);
       console.log(inputVal);
     },
+    onOperatorClick(){
+    var inputOp = document.querySelector("#Op1").value;
+    alert(inputOp);
+    console.log(inputOp);
+    },
     calculateResult (){
+      switch(this.button){
+        case '+': {
+
+        }
+        case '-':{
+
+        }
+        case '*':{
+          
+        }
+        case '/':{
+          
+        }
+
+      }
       
       
 
