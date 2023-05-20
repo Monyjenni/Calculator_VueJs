@@ -6,26 +6,26 @@
   <input type="number" v-model.number="num1"  id="myInput1">
   <button @click="getValue1()">Enter</button> 
 </div>
+<div class="operator">
+<button v-on:click="onOperatorClick1()" id="Op1">+</button>
+<p v-if="displayOp">{{ message }}</p>
+<button v-on:click="onOperatorClick('-')" id="Op2">-</button>
+<button v-on:click="onOperatorClick('*')" id="Op3">*</button>
+<button v-on:click="onOperatorClick('/')" id="Op4">/</button>
+</div>
 <div class="num-input-col-2">
   <input type="number" v-model.number="num2"  id="myInput2">
   <button @click="getValue2()">Enter</button>
 </div>
 <br>
-<div class="operator">
-  <div>
-<button v-on:click="onOperatorClick1()" id="Op1">+</button>
-<p v-if="displayOp">{{ message }}</p>
-</div>
-<button v-on:click="onOperatorClick('-')" id="Op2">-</button>
-<button v-on:click="onOperatorClick('*')" id="Op3">*</button>
-<button v-on:click="onOperatorClick('/')" id="Op4">/</button>
-</div>
+
 <div class="display-number">
   <br>
   <span>= {{ displayNumber }}</span>
 </div>
 <div class="result">
-  <p>The result is : {{ result}}</p>
+  <button @click="getResult()">Enter</button>
+  <p >The result is : {{ result}}</p>
 
 </div>
   </div>
@@ -55,6 +55,9 @@ export default {
     }
   },
   methods: {
+    getResult (){
+      alert("Successfully calculated!!!!")
+    },
     getValue1(){
       var inputVal = document.querySelector("#myInput1").value;
       alert("The input value is: " + inputVal);
@@ -80,11 +83,9 @@ export default {
     } ,
     onOperatorClick1(){
       this.displayOp= true;
-    }
-    
+    } 
     }
   }
-
 </script>
 
 <style>
@@ -96,5 +97,8 @@ export default {
 .num-input-col-2 {
   display: flex;
   align-items:center ;
+}
+.result {
+  padding-top: 50px
 }
 </style>
