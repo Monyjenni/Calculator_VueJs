@@ -10,13 +10,15 @@
   <input type="number" v-model.number="num2"  id="myInput2">
   <button @click="getValue2()">Enter</button>
 </div>
-
 <br>
 <div class="operator">
-<button @click="onOperatorClick('+')" id="Op1">+</button>
-<button @click="onOperatorClick('-')" id="Op2">-</button>
-<button @click="onOperatorClick('*')" id="Op3">*</button>
-<button @click="onOperatorClick('/')" id="Op4">/</button>
+  <div>
+<button v-on:click="onOperatorClick1()" id="Op1">+</button>
+<p v-if="displayOp">{{ message }}</p>
+</div>
+<button v-on:click="onOperatorClick('-')" id="Op2">-</button>
+<button v-on:click="onOperatorClick('*')" id="Op3">*</button>
+<button v-on:click="onOperatorClick('/')" id="Op4">/</button>
 </div>
 <div class="display-number">
   <br>
@@ -24,7 +26,7 @@
 </div>
 <div class="result">
   <p>The result is : {{ result}}</p>
-  <button @click="calculateResult">{{ result }}</button>
+
 </div>
   </div>
 </template>
@@ -41,12 +43,15 @@ export default {
     return {
       data:0,
       num1: 0,
-      num2: 0
-    }
+      num2: 0,
+      displayOp: false,
+      message: "Testing"
+    };
+    
   },
   computed: {
     displayNumber () {
-      return this.num1 + ' + ' + this.num2
+      return this.num1 + '+' + this.num2
     }
   },
   methods: {
@@ -72,7 +77,11 @@ export default {
         }
       }
 
-    } 
+    } ,
+    onOperatorClick1(){
+      this.displayOp= true;
+    }
+    
     }
   }
 
