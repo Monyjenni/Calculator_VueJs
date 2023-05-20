@@ -6,7 +6,7 @@
     <ul> 
   <li><input type="number" v-model.number="num1"  id="myInput1"></li> 
   <button @click="getValue1()">Enter</button> 
-  <li><input type="number" v-model="num2"  id="myInput2"></li> 
+  <li><input type="number" v-model.number="num2"  id="myInput2"></li> 
   <button @click="getValue2()">Enter</button>
 
   <span>{{ displayNumber }}</span>
@@ -14,6 +14,7 @@
   </ul>
 </div>
 <div class="result">
+  <p>The result is : {{ result}}</p>
   <button @click="calculateResult">Enter</button>
   <input type="number" disabled>
 </div>
@@ -63,29 +64,18 @@ export default {
     var inputOp = document.querySelector("#Op1").value;
     alert(inputOp);
     console.log(inputOp);
-    },
+    } ,
     calculateResult (){
-      switch(this.button){
-        case '+': {
-
+      switch(this.onOperatorClick){
+        case '+':{
+          this.result = Number(this.num1) + Number(this.num2)
         }
-        case '-':{
-
-        }
-        case '*':{
-          
-        }
-        case '/':{
-          
-        }
-
       }
-      
-      
 
+    } 
     }
   }
-}
+
 </script>
 
 <style>
