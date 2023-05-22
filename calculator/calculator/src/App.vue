@@ -1,24 +1,22 @@
 <template>
   <div id="app">
     <h1>Calculator</h1>
-
   <div class="num-input-col-1">
-  <input type="number" v-model.number="num1"  id="myInput1">
-  <button @click="getValue1()">Enter</button> 
+  <input type="number" v-model.number="num1"  id="myInput1" v-on:input="calculateResult">
 </div>
-<div class="operator">
-<button v-on:click="onOperatorClick1()" id="Op1">+</button>
+
+<select v-model="operator">
+<button v-on:click="add" id="Op1">+</button>
+<button v-on:click="substract" id="Op2">-</button>
+<button v-on:click="multiply" id="Op3">*</button>
+<button v-on:click="divide" id="Op4">/</button>
+</select>
 <p v-if="displayOp">{{ message }}</p>
-<button v-on:click="onOperatorClick('-')" id="Op2">-</button>
-<button v-on:click="onOperatorClick('*')" id="Op3">*</button>
-<button v-on:click="onOperatorClick('/')" id="Op4">/</button>
-</div>
 <div class="num-input-col-2">
-  <input type="number" v-model.number="num2"  id="myInput2">
-  <button @click="getValue2()">Enter</button>
+  <input type="number" v-model.number="num2"  id="myInput2" v-on:input="calculateResult">
+  
 </div>
 <br>
-
 <div class="display-number">
   <br>
   <span>= {{ displayNumber }}</span>
@@ -42,6 +40,7 @@ export default {
   data(){
     return {
       data:0,
+      result:0,
       num1: 0,
       num2: 0,
       displayOp: false,
@@ -68,11 +67,6 @@ export default {
       alert("The input value is:" + inputVal);
       console.log(inputVal);
     },
-    onOperatorClick(){
-    var inputOp = document.querySelector("#Op1").value;
-    alert(inputOp);
-    console.log(inputOp);
-    } ,
     calculateResult (){
       switch(this.onOperatorClick('+')){
         case '+':{
@@ -87,6 +81,8 @@ export default {
     }
   }
 </script>
+
+
 
 <style>
 #app {
