@@ -20,7 +20,10 @@
 <button class="btn btn-warning" @click="multiply" id="Op3">*</button>
 <button class="btn btn-warning" @click="divide" id="Op4">/</button>
 </div>
-<div class="enter"><button class="btn btn-primary" @click="getResult()">Enter</button></div>
+<div class="enter-reset">
+  <button class="btn btn-primary" @click="getEnter()">Enter</button>
+  <button class="btn btn-danger" @click="getReset()">Reset</button>
+</div>
 
 <div class="display-number">
   <!-- <p v-if="displayOp">{{ message }}</p> -->
@@ -47,30 +50,32 @@ export default {
       result:0,
       num1: 0,
       num2: 0,
-      displayOp: false,
       message: "Testing"
     };
     
   },
   computed: {
   displayNumber () {
-    return this.num1 + this.num2
+    return this.num1 + '+' + this.num2
   }
 },
   methods: {
-    getResult (){
+    getEnter (){
       alert("Successfully calculated!!!!")
     },
-    getValue1(){
-      var inputVal = document.querySelector("#myInput1").value;
-      alert("The input value is: " + inputVal);
-      console.log(inputVal);
+    getReset (){
+      alert("Successfully deleted!!!!")
     },
-    getValue2(){
-      var inputVal = document.querySelector("#myInput2").value;
-      alert("The input value is:" + inputVal);
-      console.log(inputVal);
-    },
+    // getValue1(){
+    //   var inputVal = document.querySelector("#myInput1").value;
+    //   alert("The input value is: " + inputVal);
+    //   console.log(inputVal);
+    // },
+    // getValue2(){
+    //   var inputVal = document.querySelector("#myInput2").value;
+    //   alert("The input value is:" + inputVal);
+    //   console.log(inputVal);
+    // },
     calculateResult (){
       switch(this.onOperatorClick('+')){
         case '+':{
@@ -78,22 +83,17 @@ export default {
         }
       }
 
-    } ,
-    onOperatorClick1(){
-      this.displayOp= true;
     } 
+
     }
   }
 </script>
-
-
 
 <style>
 
 #app {
   
-
-background-color: rgba(255, 249, 249, 0.866);
+background-color:aquamarine;
 
 }
 .num-input-col-2 {
@@ -123,10 +123,12 @@ background-color: rgba(255, 249, 249, 0.866);
   justify-content: center;
   display: flex;
   padding-top: 20px;
+  
 }
-.enter {
+.enter-reset {
   display: flex;
   justify-content: center;
   padding-top:20px
 }
+
 </style>
