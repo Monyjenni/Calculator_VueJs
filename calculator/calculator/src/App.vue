@@ -7,22 +7,13 @@
       <span class="navbar-brand mb-0 h1">Calculator</span>
     </nav>
     <inputField/>
+    <operatorCal/>
 
-<div class="operator-calculator">
-<button class="btn btn-warning" @click="add" id="Op1">+</button>
-<button class="btn btn-warning" @click="substract" id="Op2">-</button>
-<button class="btn btn-warning" @click="multiply" id="Op3">*</button>
-<button class="btn btn-warning" @click="divide" id="Op4">/</button>
-</div>
 <div class="enter-reset">
   <button class="btn btn-primary" @click="getEnter()">Enter</button>
   <button class="btn btn-danger" @click="getReset()">Reset</button>
 </div>
 
-<div class="display-number">
-  <!-- <p v-if="displayOp">{{ message }}</p> -->
-  <span>Your Input: {{ displayNumber }}</span>
-</div>
 <div class="result">
   <p >The result is : {{ result}}</p>
 </div>
@@ -33,11 +24,13 @@
 <script>
 
 import inputField from './components/inputField.vue';
+import operatorCal from './components/operatorCal.vue';
 
 export default {
   name: 'App',
   components: {
-    inputField
+    inputField,
+    operatorCal
   },
   data(){
     return {
@@ -45,13 +38,7 @@ export default {
       result:0,
       message: "Testing"
     };
-    
   },
-  computed: {
-  displayNumber () {
-    return this.num1 + '+' + this.num2
-  }
-},
   methods: {
     getEnter (){
       alert("Successfully calculated!!!!")
@@ -59,16 +46,6 @@ export default {
     getReset (){
       alert("Successfully deleted!!!!")
     },
-    // getValue1(){
-    //   var inputVal = document.querySelector("#myInput1").value;
-    //   alert("The input value is: " + inputVal);
-    //   console.log(inputVal);
-    // },
-    // getValue2(){
-    //   var inputVal = document.querySelector("#myInput2").value;
-    //   alert("The input value is:" + inputVal);
-    //   console.log(inputVal);
-    // },
     calculateResult (){
       switch(this.onOperatorClick('+')){
         case '+':{
@@ -104,14 +81,7 @@ background-color:aquamarine;
   width: 500px;
   height: 500px;
 }
-.body-col {
-  padding-top: 20px;
-  display: flex;
-  justify-content: center;
-  justify-content: space-between;
-  margin: 10px 10px 10px 10px;
- 
-}
+
 .operator-calculator {
   justify-content: center;
   display: flex;
