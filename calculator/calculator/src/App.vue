@@ -6,15 +6,9 @@
     <nav class="navbar navbar-dark bg-dark">
       <span class="navbar-brand mb-0 h1">Calculator</span>
     </nav>
-  <div class="body-col">
-  <div class="num-input-col-1">
-  <input type="number" v-model.number="num1"  id="myInput1">
-</div>
-<div class="num-input-col-2">
-  <input type="number" v-model.number="num2"  id="myInput2">
-</div>
-</div>
-<div class="operator">
+    <inputField/>
+
+<div class="operator-calculator">
 <button class="btn btn-warning" @click="add" id="Op1">+</button>
 <button class="btn btn-warning" @click="substract" id="Op2">-</button>
 <button class="btn btn-warning" @click="multiply" id="Op3">*</button>
@@ -37,19 +31,18 @@
 </template>
 
 <script>
-// import textfield from './components/textfield.vue';
+
+import inputField from './components/inputField.vue';
 
 export default {
   name: 'App',
   components: {
-    // textfield
+    inputField
   },
   data(){
     return {
       data:0,
       result:0,
-      num1: 0,
-      num2: 0,
       message: "Testing"
     };
     
@@ -119,7 +112,7 @@ background-color:aquamarine;
   margin: 10px 10px 10px 10px;
  
 }
-.operator {
+.operator-calculator {
   justify-content: center;
   display: flex;
   padding-top: 20px;
