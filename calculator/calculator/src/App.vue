@@ -6,24 +6,27 @@
     <nav class="navbar navbar-dark bg-dark">
       <span class="navbar-brand mb-0 h1">Calculator</span>
     </nav>
+  <div class="body-col">
   <div class="num-input-col-1">
-  <input type="number" v-model.number="num1"  id="myInput1" v-on:input="calculateResult">
+  <input type="number" v-model.number="num1"  id="myInput1">
 </div>
-<select v-model="operator">
+<div class="num-input-col-2">
+  <input type="number" v-model.number="num2"  id="myInput2">
+</div>
+</div>
+<div class="operator">
 <button v-on:click="add" id="Op1">+</button>
 <button v-on:click="substract" id="Op2">-</button>
 <button v-on:click="multiply" id="Op3">*</button>
 <button v-on:click="divide" id="Op4">/</button>
-</select>
+
 <p v-if="displayOp">{{ message }}</p>
-<div class="num-input-col-2">
-  <input type="number" v-model.number="num2"  id="myInput2" v-on:input="calculateResult">
-  
+
 </div>
 <br>
 <div class="display-number">
   <br>
-  <span>= {{ displayNumber }}</span>
+  <span>Your Input: {{ displayNumber }}</span>
 </div>
 <div class="result">
   <button @click="getResult()">Enter</button>
@@ -54,10 +57,10 @@ export default {
     
   },
   computed: {
-    displayNumber () {
-      return this.num1 + '+' + this.num2
-    }
-  },
+  displayNumber () {
+    return this.num1 + this.num2
+  }
+},
   methods: {
     getResult (){
       alert("Successfully calculated!!!!")
@@ -113,5 +116,18 @@ background-color: rgba(255, 249, 249, 0.866);
   transform: translate(-50%, -50%);
   width: 500px;
   height: 500px;
+}
+.body-col {
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  justify-content: space-between;
+  margin: 10px 10px 10px 10px;
+ 
+}
+.operator {
+  justify-content: center;
+  display: flex;
+  padding-top: 20px;
 }
 </style>
