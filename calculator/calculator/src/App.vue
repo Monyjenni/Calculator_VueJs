@@ -1,10 +1,14 @@
+
 <template>
   <div id="app">
-    <h1>Calculator</h1>
+    <div class="calculator">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <nav class="navbar navbar-dark bg-dark">
+      <span class="navbar-brand mb-0 h1">Calculator</span>
+    </nav>
   <div class="num-input-col-1">
   <input type="number" v-model.number="num1"  id="myInput1" v-on:input="calculateResult">
 </div>
-
 <select v-model="operator">
 <button v-on:click="add" id="Op1">+</button>
 <button v-on:click="substract" id="Op2">-</button>
@@ -25,6 +29,7 @@
   <button @click="getResult()">Enter</button>
   <p >The result is : {{ result}}</p>
 
+</div>
 </div>
   </div>
 </template>
@@ -85,9 +90,11 @@ export default {
 
 
 <style>
-#app {
 
-  background-color: white;
+#app {
+  
+
+background-color: rgba(255, 249, 249, 0.866);
 
 }
 .num-input-col-2 {
@@ -96,5 +103,15 @@ export default {
 }
 .result {
   padding-top: 50px
+}
+.calculator {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
 }
 </style>
