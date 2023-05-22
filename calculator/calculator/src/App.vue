@@ -15,23 +15,19 @@
 </div>
 </div>
 <div class="operator">
-<button v-on:click="add" id="Op1">+</button>
-<button v-on:click="substract" id="Op2">-</button>
-<button v-on:click="multiply" id="Op3">*</button>
-<button v-on:click="divide" id="Op4">/</button>
-
-<p v-if="displayOp">{{ message }}</p>
-
+<button class="btn btn-warning" @click="add" id="Op1">+</button>
+<button class="btn btn-warning" @click="substract" id="Op2">-</button>
+<button class="btn btn-warning" @click="multiply" id="Op3">*</button>
+<button class="btn btn-warning" @click="divide" id="Op4">/</button>
 </div>
-<br>
+<div class="enter"><button class="btn btn-primary" @click="getResult()">Enter</button></div>
+
 <div class="display-number">
-  <br>
+  <!-- <p v-if="displayOp">{{ message }}</p> -->
   <span>Your Input: {{ displayNumber }}</span>
 </div>
 <div class="result">
-  <button @click="getResult()">Enter</button>
   <p >The result is : {{ result}}</p>
-
 </div>
 </div>
   </div>
@@ -104,9 +100,7 @@ background-color: rgba(255, 249, 249, 0.866);
   display: flex;
   align-items:center ;
 }
-.result {
-  padding-top: 50px
-}
+
 .calculator {
   border: 1px solid #ccc;
   border-radius: 10px;
@@ -129,5 +123,10 @@ background-color: rgba(255, 249, 249, 0.866);
   justify-content: center;
   display: flex;
   padding-top: 20px;
+}
+.enter {
+  display: flex;
+  justify-content: center;
+  padding-top:20px
 }
 </style>
