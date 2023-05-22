@@ -12,6 +12,11 @@
         <div class="display-number">
             <span>Your Input: {{ displayNumber }}</span>
         </div>
+        <div class="enter-reset">
+            <div class="button-1"><button class="btn btn-primary" @click.prevent="getEnter()" >Enter</button></div>
+            <div class="button-2"><button class="btn btn-danger" @click.prevent="getReset()" >Reset</button></div>
+            
+          </div>
     </div>
     
       
@@ -32,7 +37,17 @@ export default {
         displayNumber(){
             return this.num1 + ' ' + '+' + ' ' + this.num2
         }
-    }
+    },
+    getEnter (){
+      alert("Successfully calculated!!!!")
+    },
+    getReset (){
+      alert("Successfully deleted!!!!")
+      this.myInput1 = 0
+      this.myInput2= 0
+      
+      
+    },
 }
 </script>
 
@@ -44,4 +59,13 @@ export default {
     justify-content: space-between;
     margin: 10px 10px 10px 10px;
    
-  }</style>
+  }
+  .enter-reset {
+    display: flex;
+    justify-content: center;
+    padding-top:20px
+  }
+  .button-1 {
+    margin-right: 20px;
+  }
+</style>
