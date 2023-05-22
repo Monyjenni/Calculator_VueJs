@@ -1,9 +1,9 @@
 <template>
     <div id="#app">
         <div class="body-col">
-            
             <div class="num-input-col-1">
-            <input type="number" v-model.number="num1"  id="myInput1" placeholder="Your input 1" >
+              
+            <input type="number"  v-model.number="num1"  id="myInput1" placeholder="Your input 1" >
           </div>
           <div class="num-input-col-2">
             <input type="number" v-model.number="num2"  id="myInput2" placeholder="Your input 2" >
@@ -29,8 +29,7 @@ export default {
     data () {
         return {
             num1: 0,
-            num2: 0,
-            
+            num2: 0, 
         }
     },
     computed :{
@@ -38,16 +37,25 @@ export default {
             return this.num1 + ' ' + '+' + ' ' + this.num2
         }
     },
-    getEnter (){
+    methods: {
+      getEnter (){
       alert("Successfully calculated!!!!")
     },
-    getReset (){
+    //why can't i set my num 1 and num 2 to 0 ?
+      getReset (){
       alert("Successfully deleted!!!!")
-      this.myInput1 = 0
-      this.myInput2= 0
-      
-      
+      this.num1 = 0
+      this.num2= 0
     },
+    props: {
+      type: String,
+      default: ''
+    },
+    value: {
+      type: Number
+    }
+    }
+    
 }
 </script>
 

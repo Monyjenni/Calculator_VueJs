@@ -8,17 +8,13 @@
     </nav>
     <inputField/>
     <div class="operator-calculator">
-      <button class="btn btn-warning" @click="add" id="Op1">+</button>
-      <button class="btn btn-warning" @click="substract" id="Op2">-</button>
-      <button class="btn btn-warning" @click="multiply" id="Op3">*</button>
-      <button class="btn btn-warning" @click="divide" id="Op4">/</button>
-  </div>
+      <!-- string operators are called val which is parameter -->
+      <button class="btn btn-warning" @click="handleClick('+')" >+</button>
+      <button class="btn btn-warning" @click="handleClick('-')" >-</button>
+      <button class="btn btn-warning" @click="handleClick('*')" >*</button>
+      <button class="btn btn-warning" @click="handleClick('/')" >/</button>
 
-<!-- <div class="enter-reset">
-  <div class="button-1"><button class="btn btn-primary" @click="getEnter()" >Enter</button></div>
-  <div class="button-2"><button class="btn btn-danger" @click="getReset()" id="clear">Reset</button></div>
-  
-</div> -->
+  </div>
 
 <div class="result">
   <p >The result is : {{ result}}</p>
@@ -42,24 +38,31 @@ export default {
       data:0,
       result:0,
       message: "Testing",
-      clear:false
+    
     };
   },
   methods: {
     
-    calculateResult (){
-      switch(this.onOperatorClick('+')){
-        case '+':{
-          this.result = Number(this.num1) + Number(this.num2)
-        }
-      }
-
-    } ,
     add() {
       alert('hi dear! ')
+    },
+    handleClick(val) {
+      switch(operator){
+        case '+':
+        this.result= this.num1 + this.num2
+        break 
+        case '-' 
+      }
     }
-
-    }
+  
+    },
+    props : {
+      operator: {
+        type: String,
+        required: true
+      },
+    },
+  
   }
 </script>
 
