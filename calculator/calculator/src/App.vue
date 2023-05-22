@@ -7,12 +7,18 @@
       <span class="navbar-brand mb-0 h1">Calculator</span>
     </nav>
     <inputField/>
-    <operatorCal/>
+    <div class="operator-calculator">
+      <button class="btn btn-warning" @click="add" id="Op1">+</button>
+      <button class="btn btn-warning" @click="substract" id="Op2">-</button>
+      <button class="btn btn-warning" @click="multiply" id="Op3">*</button>
+      <button class="btn btn-warning" @click="divide" id="Op4">/</button>
+  </div>
 
-<div class="enter-reset">
-  <button class="btn btn-primary" @click="getEnter()">Enter</button>
-  <button class="btn btn-danger" @click="getReset()">Reset</button>
-</div>
+<!-- <div class="enter-reset">
+  <div class="button-1"><button class="btn btn-primary" @click="getEnter()" >Enter</button></div>
+  <div class="button-2"><button class="btn btn-danger" @click="getReset()" id="clear">Reset</button></div>
+  
+</div> -->
 
 <div class="result">
   <p >The result is : {{ result}}</p>
@@ -24,28 +30,23 @@
 <script>
 
 import inputField from './components/inputField.vue';
-import operatorCal from './components/operatorCal.vue';
+
 
 export default {
   name: 'App',
   components: {
     inputField,
-    operatorCal
   },
   data(){
     return {
       data:0,
       result:0,
-      message: "Testing"
+      message: "Testing",
+      clear:false
     };
   },
   methods: {
-    getEnter (){
-      alert("Successfully calculated!!!!")
-    },
-    getReset (){
-      alert("Successfully deleted!!!!")
-    },
+    
     calculateResult (){
       switch(this.onOperatorClick('+')){
         case '+':{
@@ -53,7 +54,10 @@ export default {
         }
       }
 
-    } 
+    } ,
+    add() {
+      alert('hi dear! ')
+    }
 
     }
   }
@@ -88,10 +92,8 @@ background-color:aquamarine;
   padding-top: 20px;
   
 }
-.enter-reset {
-  display: flex;
-  justify-content: center;
-  padding-top:20px
-}
+
+
+
 
 </style>
