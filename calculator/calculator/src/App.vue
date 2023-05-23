@@ -6,7 +6,7 @@
     <nav class="navbar navbar-dark bg-dark">
       <span class="navbar-brand mb-0 h1">Calculator</span>
     </nav>
-    <inputField/>
+    <inputField />
     
     <div class="operator-calculator">
       <!-- string operators are called val which is parameter -->
@@ -14,20 +14,15 @@
       <button class="btn btn-warning" @click="handleClick('-')" >-</button>
       <button class="btn btn-warning" @click="handleClick('*')" >*</button>
       <button class="btn btn-warning" @click="handleClick('/')" >/</button>
-
   </div>
-
 <div class="result">
   <p >The result is : {{ result}}</p>
 </div>
 </div>
   </div>
 </template>
-
 <script>
-
 import inputField from './components/inputField.vue';
-
 
 export default {
   name: 'App',
@@ -51,7 +46,7 @@ export default {
       this.operator=val;
       switch(this.operator){
         case '+':
-        this.result= this.num1 + this.num2
+        this.result= parseInt(this.num1) + parseInt(this.num2)
         break ;
         case '-':
         this.result = this.num1 - this.num2
