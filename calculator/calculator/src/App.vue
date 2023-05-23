@@ -7,6 +7,7 @@
       <span class="navbar-brand mb-0 h1">Calculator</span>
     </nav>
     <inputField/>
+    
     <div class="operator-calculator">
       <!-- string operators are called val which is parameter -->
       <button class="btn btn-warning" @click="handleClick('+')" >+</button>
@@ -37,8 +38,7 @@ export default {
     return {
       data:0,
       result:0,
-      message: "Testing",
-    
+      operator: '+',
     };
   },
   methods: {
@@ -47,22 +47,26 @@ export default {
       alert('hi dear! ')
     },
     handleClick(val) {
-      switch(operator){
+      //(val) here sets the value of the operator data prop to the value of the clicked button's operator
+      this.operator=val;
+      switch(this.operator){
         case '+':
         this.result= this.num1 + this.num2
-        break 
-        case '-' 
+        break ;
+        case '-':
+        this.result = this.num1 - this.num2
+        break;
+        case '*' :
+          this.result = this.num1 * this.num2
+        break;
+        case '/':
+          this.result= this.num1 / this.num2
+          break;  
       }
     }
   
     },
-    props : {
-      operator: {
-        type: String,
-        required: true
-      },
-    },
-  
+    
   }
 </script>
 
